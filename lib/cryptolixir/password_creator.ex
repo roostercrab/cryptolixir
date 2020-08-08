@@ -1,8 +1,8 @@
 defmodule Cryptolixir.PasswordCreator do
- def return_password(options, length) do
+ def return_password(options, length, user_entropy) do
    keyboard_list = parse_options(options, [])
    password = extract_random(keyboard_list, length, [])
-   IO.puts(password)
+   entropy_introducer(keyboard_list, password, user_entropy)
  end
 
  defp parse_options([], include_list) do
